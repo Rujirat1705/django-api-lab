@@ -1,6 +1,7 @@
 from django.urls import path
-from .views import ProductList
+from .views import ProductListCreateView, ProductDetailView
 
 urlpatterns = [
-    path('products/', ProductList.as_view()),
+    path('products/', ProductListCreateView.as_view(), name='product-list-create'),
+    path('products/<int:pk>/', ProductDetailView.as_view(), name='product-detail'), # <-- เพิ่มบรรทัดนี้
 ]
